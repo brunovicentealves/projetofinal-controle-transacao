@@ -1,16 +1,21 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
+@Table(name = "endereco")
 public class Endereco {
-
+    @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEndereco;
     private String nomeEndereco;
     private int  numeroEndereco;
     private long cep;
     private String complemento;
+    @ManyToOne
+   @JoinColumn(name = "id_cidade", nullable = false)
     private Cidade cidade;
-    List<Contato> contatoList;
+    //List<Contato> contatoList;
 
     public Endereco() {
     }
@@ -66,11 +71,5 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public List<Contato> getContatoList() {
-        return contatoList;
-    }
 
-    public void setContatoList(List<Contato> contatoList) {
-        this.contatoList = contatoList;
-    }
 }

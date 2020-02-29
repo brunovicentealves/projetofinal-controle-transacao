@@ -1,11 +1,16 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
+@Table(name = "estado")
 public class Estado {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private long idEstado;
     private String nomeEstado;
     private String sigla;
+    @OneToMany(mappedBy = "estado")
     private List<Cidade> cidadeList;
 
     public Estado() {
