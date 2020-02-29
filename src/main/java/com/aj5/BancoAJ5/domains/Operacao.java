@@ -1,22 +1,24 @@
 package com.aj5.BancoAJ5.domains;
 
 import java.util.Date;
+import java.util.List;
 
 public class Operacao {
 
     private Long idOperacao;
-    private Long idTipoOperacao;
-    private Long idCanalOperacao;
+    private TipoOperacao idTipoOperacao;
+    private CanalOperacao idCanalOperacao;
     private Long idContaOrigem;
     private Long idContaDestino;
     private Date data;
     private String descricao;
     private Double valor;
+    private List<TipoOperacao> tipoOperacaoList;
 
     public Operacao() {
     }
 
-    public Operacao(Long idOperacao, Long idTipoOperacao, Long idCanalOperacao, Long idContaOrigem, Long idContaDestino, Date data, String descricao, Double valor) {
+    public Operacao(Long idOperacao, TipoOperacao idTipoOperacao, CanalOperacao idCanalOperacao, Long idContaOrigem, Long idContaDestino, Date data, String descricao, Double valor, List<TipoOperacao> tipoOperacaoList) {
         this.idOperacao = idOperacao;
         this.idTipoOperacao = idTipoOperacao;
         this.idCanalOperacao = idCanalOperacao;
@@ -25,24 +27,26 @@ public class Operacao {
         this.data = data;
         this.descricao = descricao;
         this.valor = valor;
+        this.tipoOperacaoList = tipoOperacaoList;
     }
 
     public Long getIdOperacao() {
         return idOperacao;
     }
-    public Long getIdTipoOperacao() {
+
+    public TipoOperacao getIdTipoOperacao() {
         return idTipoOperacao;
     }
 
-    public void setIdTipoOperacao(Long idTipoOperacao) {
+    public void setIdTipoOperacao(TipoOperacao idTipoOperacao) {
         this.idTipoOperacao = idTipoOperacao;
     }
 
-    public Long getIdCanalOperacao() {
+    public CanalOperacao getIdCanalOperacao() {
         return idCanalOperacao;
     }
 
-    public void setIdCanalOperacao(Long idCanalOperacao) {
+    public void setIdCanalOperacao(CanalOperacao idCanalOperacao) {
         this.idCanalOperacao = idCanalOperacao;
     }
 
@@ -86,6 +90,14 @@ public class Operacao {
         this.valor = valor;
     }
 
+    public List<TipoOperacao> getTipoOperacaoList() {
+        return tipoOperacaoList;
+    }
+
+    public void setTipoOperacaoList(List<TipoOperacao> tipoOperacaoList) {
+        this.tipoOperacaoList = tipoOperacaoList;
+    }
+
     @Override
     public String toString() {
         return "Operacao{" +
@@ -97,6 +109,7 @@ public class Operacao {
                 ", data=" + data +
                 ", descricao='" + descricao + '\'' +
                 ", valor=" + valor +
+                ", tipoOperacaoList=" + tipoOperacaoList +
                 '}';
     }
 }

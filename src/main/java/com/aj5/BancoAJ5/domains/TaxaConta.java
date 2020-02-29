@@ -3,13 +3,13 @@ package com.aj5.BancoAJ5.domains;
 public class TaxaConta {
 
     private Long idTaxaConta;
-    private Long idConta;
-    private Long idTaxa;
+    private Conta idConta;
+    private Taxa idTaxa;
 
     public TaxaConta() {
     }
 
-    public TaxaConta(Long idTaxaConta, Long idConta, Long idTaxa) {
+    public TaxaConta(Long idTaxaConta, Conta idConta, Taxa idTaxa) {
         this.idTaxaConta = idTaxaConta;
         this.idConta = idConta;
         this.idTaxa = idTaxa;
@@ -19,19 +19,19 @@ public class TaxaConta {
         return idTaxaConta;
     }
 
-    public Long getIdConta() {
+    public Conta getIdConta() {
         return idConta;
     }
 
-    public void setIdConta(Long idConta) {
+    public void setIdConta(Conta idConta) {
         this.idConta = idConta;
     }
 
-    public Long getIdTaxa() {
+    public Taxa getIdTaxa() {
         return idTaxa;
     }
 
-    public void setIdTaxa(Long idTaxa) {
+    public void setIdTaxa(Taxa idTaxa) {
         this.idTaxa = idTaxa;
     }
 
