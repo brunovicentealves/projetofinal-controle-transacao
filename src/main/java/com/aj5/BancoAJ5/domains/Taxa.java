@@ -1,49 +1,48 @@
 package com.aj5.BancoAJ5.domains;
 
 import java.util.Date;
+import java.util.List;
 
 public class Taxa {
 
     private Long idTaxa;
-    private Long idOperacao;
-    private Long idTipoOperacao;
+    private TipoOperacao idTipoOperacao;
     private String nomeTaxa;
     private Double valor;
     private String codTaxa;
     private Date dataInicio;
     private Date dataFim;
+    private String valorTaxa;
+    private List<TaxaConta> taxaContaList;
 
     public Taxa() {
     }
 
-    public Taxa(Long idTaxa, Long idOperacao, Long idTipoOperacao, String nomeTaxa, Double valor, String codTaxa, Date dataInicio, Date dataFim) {
+    public Taxa(Long idTaxa, TipoOperacao idTipoOperacao, String nomeTaxa, Double valor, String codTaxa, Date dataInicio, Date dataFim, String valorTaxa, List<TaxaConta> taxaContaList) {
         this.idTaxa = idTaxa;
-        this.idOperacao = idOperacao;
         this.idTipoOperacao = idTipoOperacao;
         this.nomeTaxa = nomeTaxa;
         this.valor = valor;
         this.codTaxa = codTaxa;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
+        this.valorTaxa = valorTaxa;
+        this.taxaContaList = taxaContaList;
     }
 
     public Long getIdTaxa() {
         return idTaxa;
     }
 
-    public Long getIdOperacao() {
-        return idOperacao;
+    public void setIdTaxa(Long idTaxa) {
+        this.idTaxa = idTaxa;
     }
 
-    public void setIdOperacao(Long idOperacao) {
-        this.idOperacao = idOperacao;
-    }
-
-    public Long getIdTipoOperacao() {
+    public TipoOperacao getIdTipoOperacao() {
         return idTipoOperacao;
     }
 
-    public void setIdTipoOperacao(Long idTipoOperacao) {
+    public void setIdTipoOperacao(TipoOperacao idTipoOperacao) {
         this.idTipoOperacao = idTipoOperacao;
     }
 
@@ -87,17 +86,34 @@ public class Taxa {
         this.dataFim = dataFim;
     }
 
+    public String getValorTaxa() {
+        return valorTaxa;
+    }
+
+    public void setValorTaxa(String valorTaxa) {
+        this.valorTaxa = valorTaxa;
+    }
+
+    public List<TaxaConta> getTaxaContaList() {
+        return taxaContaList;
+    }
+
+    public void setTaxaContaList(List<TaxaConta> taxaContaList) {
+        this.taxaContaList = taxaContaList;
+    }
+
     @Override
     public String toString() {
         return "Taxa{" +
                 "idTaxa=" + idTaxa +
-                ", idOperacao=" + idOperacao +
                 ", idTipoOperacao=" + idTipoOperacao +
                 ", nomeTaxa='" + nomeTaxa + '\'' +
                 ", valor=" + valor +
                 ", codTaxa='" + codTaxa + '\'' +
                 ", dataInicio=" + dataInicio +
                 ", dataFim=" + dataFim +
+                ", valorTaxa='" + valorTaxa + '\'' +
+                ", taxaContaList=" + taxaContaList +
                 '}';
     }
 }

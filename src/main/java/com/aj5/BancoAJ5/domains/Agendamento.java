@@ -1,12 +1,17 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
 public class Agendamento {
+
     private  Long idAgendamento;
-    private  Long idcontaDestino;
-    private  Long idcontaOrigem;
+    private  Conta idcontaDestino;
+    private  Conta idcontaOrigem;
     private  Double valor;
     private Date dataAgenda;
     private Date dataEfetivacao;
@@ -15,7 +20,7 @@ public class Agendamento {
     public Agendamento() {
     }
 
-    public Agendamento(Long idAgendamento, Long idcontaDestino, Long idcontaOrigem, Double valor, Date dataAgenda, Date dataEfetivacao, Boolean statusEfetivado) {
+    public Agendamento(Long idAgendamento, Conta idcontaDestino, Conta idcontaOrigem, Double valor, Date dataAgenda, Date dataEfetivacao, Boolean statusEfetivado) {
         this.idAgendamento = idAgendamento;
         this.idcontaDestino = idcontaDestino;
         this.idcontaOrigem = idcontaOrigem;
@@ -29,19 +34,19 @@ public class Agendamento {
         return idAgendamento;
     }
 
-    public Long getIdcontaDestino() {
+    public Conta getIdcontaDestino() {
         return idcontaDestino;
     }
 
-    public void setIdcontaDestino(Long idcontaDestino) {
+    public void setIdcontaDestino(Conta idcontaDestino) {
         this.idcontaDestino = idcontaDestino;
     }
 
-    public Long getIdcontaOrigem() {
+    public Conta getIdcontaOrigem() {
         return idcontaOrigem;
     }
 
-    public void setIdcontaOrigem(Long idcontaOrigem) {
+    public void setIdcontaOrigem(Conta idcontaOrigem) {
         this.idcontaOrigem = idcontaOrigem;
     }
 
