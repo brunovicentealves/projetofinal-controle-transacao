@@ -1,11 +1,19 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
+@Table(name = "cidade")
 public class Cidade {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idCidade;
     private String nomeCidade;
+    @ManyToOne
+    @JoinColumn(name = "id_estado",nullable = false)
     private Estado estado;
+
+    @OneToMany(mappedBy = "cidade")
     private List<Endereco> enderecoList;
 
     public Cidade() {
@@ -48,3 +56,4 @@ public class Cidade {
         this.enderecoList = enderecoList;
     }
 }
+
