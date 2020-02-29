@@ -1,10 +1,14 @@
 package com.aj5.BancoAJ5.domains;
 
+import java.util.List;
+
 public class CanalOperacao {
 
     private Long canalOperacao;
     private String codCanalOperacao;
     private String nomecanalOperacao;
+
+    private List<LimiteCanal> limiteCanalList;
 
     public CanalOperacao() {
     }

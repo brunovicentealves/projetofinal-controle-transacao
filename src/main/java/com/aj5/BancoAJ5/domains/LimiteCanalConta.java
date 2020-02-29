@@ -3,13 +3,13 @@ package com.aj5.BancoAJ5.domains;
 public class LimiteCanalConta {
 
     private Long idlimiteConta;
-    private Long idConta;
-    private Long idLimiteCanalConta;
+    private Conta idConta;
+    private LimiteCanal idLimiteCanalConta;
 
     public LimiteCanalConta() {
     }
 
-    public LimiteCanalConta(Long idlimiteConta, Long idConta, Long idLimiteCanalConta) {
+    public LimiteCanalConta(Long idlimiteConta, Conta idConta, LimiteCanal idLimiteCanalConta) {
         this.idlimiteConta = idlimiteConta;
         this.idConta = idConta;
         this.idLimiteCanalConta = idLimiteCanalConta;
@@ -19,19 +19,19 @@ public class LimiteCanalConta {
         return idlimiteConta;
     }
 
-    public Long getIdConta() {
+    public Conta getIdConta() {
         return idConta;
     }
 
-    public void setIdConta(Long idConta) {
+    public void setIdConta(Conta idConta) {
         this.idConta = idConta;
     }
 
-    public Long getIdLimiteCanalConta() {
+    public LimiteCanal getIdLimiteCanalConta() {
         return idLimiteCanalConta;
     }
 
-    public void setIdLimiteCanalConta(Long idLimiteCanalConta) {
+    public void setIdLimiteCanalConta(LimiteCanal idLimiteCanalConta) {
         this.idLimiteCanalConta = idLimiteCanalConta;
     }
 

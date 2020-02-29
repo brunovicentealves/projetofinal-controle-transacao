@@ -1,16 +1,20 @@
 package com.aj5.BancoAJ5.domains;
 
+import java.util.List;
+
 public class LimiteCanal {
 
     private Long idLimiteCanal;
-    private Long idCanalOperacao;
+    private CanalOperacao idCanalOperacao;
     private String codLimiteCanal;
     private String nomeLimiteCanal;
+
+    private List<LimiteCanalConta> limiteCanalList;
 
     public LimiteCanal() {
     }
 
-    public LimiteCanal(Long idLimiteCanal, Long idCanalOperacao, String codLimiteCanal, String nomeLimiteCanal) {
+    public LimiteCanal(Long idLimiteCanal, CanalOperacao idCanalOperacao, String codLimiteCanal, String nomeLimiteCanal) {
         this.idLimiteCanal = idLimiteCanal;
         this.idCanalOperacao = idCanalOperacao;
         this.codLimiteCanal = codLimiteCanal;
@@ -21,11 +25,11 @@ public class LimiteCanal {
         return idLimiteCanal;
     }
 
-    public Long getIdCanalOperacao() {
+    public CanalOperacao getIdCanalOperacao() {
         return idCanalOperacao;
     }
 
-    public void setIdCanalOperacao(Long idCanalOperacao) {
+    public void setIdCanalOperacao(CanalOperacao idCanalOperacao) {
         this.idCanalOperacao = idCanalOperacao;
     }
 
