@@ -1,32 +1,37 @@
 package com.aj5.BancoAJ5.domains;
 
+import java.util.List;
+
 public class Endereco {
 
     private long idEndereco;
+    private String nomeEndereco;
     private int  numeroEndereco;
     private long cep;
     private String complemento;
-    //Nao implentado o  relacionamento
-    private long idCidade;
     private Cidade cidade;
+    List<Contato> contatoList;
 
     public Endereco() {
     }
 
-    public Endereco(long idEndereco, int numeroEndereco, long cep, String complemento) {
-        this.idEndereco = idEndereco;
+    public Endereco(int numeroEndereco, long cep, String complemento, Cidade cidade) {
         this.numeroEndereco = numeroEndereco;
         this.cep = cep;
         this.complemento = complemento;
+        this.cidade = cidade;
     }
-
 
     public long getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(long idEndereco) {
-        this.idEndereco = idEndereco;
+    public String getNomeEndereco() {
+        return nomeEndereco;
+    }
+
+    public void setNomeEndereco(String nomeEndereco) {
+        this.nomeEndereco = nomeEndereco;
     }
 
     public int getNumeroEndereco() {
@@ -51,5 +56,21 @@ public class Endereco {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public List<Contato> getContatoList() {
+        return contatoList;
+    }
+
+    public void setContatoList(List<Contato> contatoList) {
+        this.contatoList = contatoList;
     }
 }

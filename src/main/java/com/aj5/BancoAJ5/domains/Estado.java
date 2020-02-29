@@ -1,9 +1,12 @@
 package com.aj5.BancoAJ5.domains;
 
+import java.util.List;
+
 public class Estado {
     private long idEstado;
     private String nomeEstado;
     private String sigla;
+    private List<Cidade> cidadeList;
 
     public Estado() {
     }
@@ -31,5 +34,14 @@ public class Estado {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+
+
+    public List<Cidade> getCidadeList() {
+        return cidadeList;
+    }
+
+    public void setCidadeList(List<Cidade> cidadeList) {
+        this.cidadeList = cidadeList;
     }
 }
