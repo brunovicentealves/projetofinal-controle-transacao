@@ -15,7 +15,9 @@ public class Endereco {
     @ManyToOne
    @JoinColumn(name = "id_cidade", nullable = false)
     private Cidade cidade;
-    //List<Contato> contatoList;
+
+    @OneToMany(mappedBy = "endereco")
+    List<Contato> contatoList;
 
     public Endereco() {
     }

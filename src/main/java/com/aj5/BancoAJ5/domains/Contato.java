@@ -1,17 +1,26 @@
 package com.aj5.BancoAJ5.domains;
 
-import java.util.List;
+import org.hibernate.annotations.JoinColumnOrFormula;
 
+import javax.persistence.*;
+import java.util.List;
+@Entity
+@Table(name = "contato")
 public class Contato {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idContato;
     private String telefone;
 
     //não implementado a relacao
+    @ManyToOne
+    @JoinColumn(name = "id_endereco" , nullable = false)
     private Endereco endereco;
+
     private TipoContato tipoContato;
 
-    private List<PessoaFisicaContato> pessoaFisicaContatoList;
-    private List<PessoaJuridicaContato> pessoaJuridicaContatoList;
+    //private List<PessoaFisicaContato> pessoaFisicaContatoList;
+    //private List<PessoaJuridicaContato> pessoaJuridicaContatoList;
 
     public Contato() {
     }
