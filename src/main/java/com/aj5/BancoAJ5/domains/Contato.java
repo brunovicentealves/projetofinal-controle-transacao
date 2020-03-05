@@ -17,7 +17,9 @@ public class Contato {
     @JoinColumn(name = "id_endereco" , nullable = false)
     private Endereco endereco;
 
-    private TipoContato tipoContato;
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_contato",nullable =false)
+    private TipoContato tipocontato;
 
     //private List<PessoaFisicaContato> pessoaFisicaContatoList;
     //private List<PessoaJuridicaContato> pessoaJuridicaContatoList;
@@ -28,7 +30,7 @@ public class Contato {
     public Contato( String telefone, Endereco endereco, TipoContato tipoContato) {
         this.telefone = telefone;
         this.endereco = endereco;
-        this.tipoContato = tipoContato;
+        this.tipocontato = tipoContato;
     }
 
     public long getIdContato() {
@@ -53,10 +55,10 @@ public class Contato {
     }
 
     public TipoContato getTipoContato() {
-        return tipoContato;
+        return tipocontato;
     }
 
     public void setTipoContato(TipoContato tipoContato) {
-        this.tipoContato = tipoContato;
+        this.tipocontato = tipoContato;
     }
 }
