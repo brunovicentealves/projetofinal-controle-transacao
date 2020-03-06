@@ -1,10 +1,13 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
+@Entity
+@Table(name = "pessoajuridica")
 public class PessoaJuridica {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPessoaJuridica;
     private String nomeProprietario;
 
@@ -15,8 +18,13 @@ public class PessoaJuridica {
     private Double faturamento;
 
 
+    @OneToOne
+    @JoinColumn(name = "id_conta" )
     private Conta conta;
 
+
+    //private Conta conta;
+    @OneToMany(mappedBy = "pessoaJuridica")
     private List<PessoaJuridicaContato> pessoaJuridicaContatoList;
 
 
@@ -33,7 +41,6 @@ public class PessoaJuridica {
         this.conta = conta;
         this.pessoaJuridicaContatoList = pessoaJuridicaContatoList;
     }
-
 
     public String getNomeProprietario() {
         return nomeProprietario;

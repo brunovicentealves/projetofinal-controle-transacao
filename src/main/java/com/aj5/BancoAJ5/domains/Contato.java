@@ -21,8 +21,10 @@ public class Contato {
     @JoinColumn(name = "id_tipo_contato",nullable =false)
     private TipoContato tipocontato;
 
-    //private List<PessoaFisicaContato> pessoaFisicaContatoList;
-    //private List<PessoaJuridicaContato> pessoaJuridicaContatoList;
+    @OneToMany(mappedBy = "contato")
+    private List<PessoaFisicaContato> pessoaFisicaContatoList;
+    @OneToMany(mappedBy = "contato")
+    private List<PessoaJuridicaContato> pessoaJuridicaContatoList;
 
     public Contato() {
     }
@@ -60,5 +62,13 @@ public class Contato {
 
     public void setTipoContato(TipoContato tipoContato) {
         this.tipocontato = tipoContato;
+    }
+
+    public List<PessoaFisicaContato> getPessoaFisicaContatoList() {
+        return pessoaFisicaContatoList;
+    }
+
+    public void setPessoaFisicaContatoList(List<PessoaFisicaContato> pessoaFisicaContatoList) {
+        this.pessoaFisicaContatoList = pessoaFisicaContatoList;
     }
 }

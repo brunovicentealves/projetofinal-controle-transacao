@@ -1,11 +1,17 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-
+@Entity
+@Table(name = "conta")
 public class Conta {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idConta;
+    @OneToOne(mappedBy = "conta")
     private PessoaFisica pessoaFisica;
+    @OneToOne(mappedBy ="conta")
     private PessoaJuridica pessoaJuridica;
     private long numeroConta;
     private Date dataAbertura;
@@ -13,34 +19,17 @@ public class Conta {
     private Double saldo;
     private Double limiteCheckEspecial;
     private String userName;
-    private Agencia agencia;
-    private List<TaxaConta> taxaContaList;
-    private List<Operacao> operacaoList;
-    private List<Agendamento> agendamentoList;
+   // private Agencia agencia;
+   // private List<TaxaConta> taxaContaList;
+   // private List<Operacao> operacaoList;
+   // private List<Agendamento> agendamentoList;
 
     public Conta() {
     }
 
-    public Conta(Agencia agencia, PessoaFisica pessoaFisica, PessoaJuridica pessoaJuridica, List<TaxaConta> taxaContaList, long numeroConta, Date dataAbertura, String senha, Double saldo, Double limiteCheckEspecial, String userName) {
-        this.agencia = agencia;
-        this.pessoaFisica = pessoaFisica;
-        this.pessoaJuridica = pessoaJuridica;
-        this.taxaContaList = taxaContaList;
-        this.numeroConta = numeroConta;
-        this.dataAbertura = dataAbertura;
-        this.senha = senha;
-        this.saldo = saldo;
-        this.limiteCheckEspecial = limiteCheckEspecial;
-        this.userName = userName;
-    }
 
-    public Agencia getAgencia() {
-        return agencia;
-    }
 
-    public void setAgencia(Agencia agencia) {
-        this.agencia = agencia;
-    }
+
 
     public PessoaFisica getPessoaFisica() {
         return pessoaFisica;
@@ -58,13 +47,7 @@ public class Conta {
         this.pessoaJuridica = pessoaJuridica;
     }
 
-    public List<TaxaConta> getTaxaContaList() {
-        return taxaContaList;
-    }
 
-    public void setTaxaContaList(List<TaxaConta> taxaContaList) {
-        this.taxaContaList = taxaContaList;
-    }
 
     public long getNumeroConta() {
         return numeroConta;
@@ -115,19 +98,5 @@ public class Conta {
     }
 
 
-    public List<Operacao> getOperacaoList() {
-        return operacaoList;
-    }
 
-    public void setOperacaoList(List<Operacao> operacaoList) {
-        this.operacaoList = operacaoList;
-    }
-
-    public List<Agendamento> getAgendamentoList() {
-        return agendamentoList;
-    }
-
-    public void setAgendamentoList(List<Agendamento> agendamentoList) {
-        this.agendamentoList = agendamentoList;
-    }
 }

@@ -1,32 +1,37 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+@Entity
+@Table(name = "pessoafisica")
+public class PessoaFisica implements Serializable {
 
-public class PessoaFisica {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPessoaFisica;
-    private List<PessoaFisicaContato> pessoaFisicaContatoList;
+
     private String nomePessoa;
     private Date dataNascimento;
     private String cpf;
     private Double rendaMensal;
+
+
+    @OneToMany(mappedBy = "pessoaFisica")
+    private List<PessoaFisicaContato> pessoaFisicaContatoList;
+    @OneToOne
+    @JoinColumn(name = "id_conta")
     private Conta conta;
 
-    public PessoaFisica(List<PessoaFisicaContato> pessoaFisicaContatoList, String nomePessoa, Date dataNascimento, String cpf, Double rendaMensal, Conta conta) {
-        this.pessoaFisicaContatoList = pessoaFisicaContatoList;
+
+    public PessoaFisica(String nomePessoa, Date dataNascimento, String cpf, Double rendaMensal, List<PessoaFisicaContato> pessoaFisicaContatoList, Conta conta) {
         this.nomePessoa = nomePessoa;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         this.rendaMensal = rendaMensal;
-        this.conta = conta;
-    }
-
-    public List<PessoaFisicaContato> getPessoaFisicaContatoList() {
-        return pessoaFisicaContatoList;
-    }
-
-    public void setPessoaFisicaContatoList(List<PessoaFisicaContato> pessoaFisicaContatoList) {
         this.pessoaFisicaContatoList = pessoaFisicaContatoList;
+        this.conta = conta;
     }
 
     public String getNomePessoa() {
@@ -59,6 +64,14 @@ public class PessoaFisica {
 
     public void setRendaMensal(Double rendaMensal) {
         this.rendaMensal = rendaMensal;
+    }
+
+    public List<PessoaFisicaContato> getPessoaFisicaContatoList() {
+        return pessoaFisicaContatoList;
+    }
+
+    public void setPessoaFisicaContatoList(List<PessoaFisicaContato> pessoaFisicaContatoList) {
+        this.pessoaFisicaContatoList = pessoaFisicaContatoList;
     }
 
     public Conta getConta() {
