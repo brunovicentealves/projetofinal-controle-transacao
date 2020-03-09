@@ -1,16 +1,18 @@
 package com.aj5.BancoAJ5.domains;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
-
-public class Agencia {
-
+@Entity
+@Table(name = "agencia")
+public class  Agencia {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAgencia;
     private String nomeAgencia;
-    private List<Conta> contas;
+
+
+    @OneToMany(mappedBy = "agencia")
+    private List<Conta> contaList;
 
     public Agencia() {
     }
