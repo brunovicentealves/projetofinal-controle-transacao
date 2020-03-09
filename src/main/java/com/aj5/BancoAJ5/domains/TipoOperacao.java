@@ -15,17 +15,17 @@ public class TipoOperacao {
     @OneToMany(mappedBy = "tipoOperacao")
     private List<Taxa> taxaList;
 
+    @OneToMany(mappedBy = "tipoOperacao")
+    private List<Operacao> operacaoList;
+
     public TipoOperacao() {
     }
 
-    public TipoOperacao(String codTipoOperacao, String nomeTipoOpercacao, List<Taxa> taxaList) {
+    public TipoOperacao(String codTipoOperacao, String nomeTipoOpercacao, List<Taxa> taxaList, List<Operacao> operacaoList) {
         this.codTipoOperacao = codTipoOperacao;
         this.nomeTipoOpercacao = nomeTipoOpercacao;
         this.taxaList = taxaList;
-    }
-
-    public Long getIdTipoOperacao() {
-        return idTipoOperacao;
+        this.operacaoList = operacaoList;
     }
 
     public String getCodTipoOperacao() {
@@ -52,5 +52,11 @@ public class TipoOperacao {
         this.taxaList = taxaList;
     }
 
+    public List<Operacao> getOperacaoList() {
+        return operacaoList;
+    }
 
+    public void setOperacaoList(List<Operacao> operacaoList) {
+        this.operacaoList = operacaoList;
+    }
 }

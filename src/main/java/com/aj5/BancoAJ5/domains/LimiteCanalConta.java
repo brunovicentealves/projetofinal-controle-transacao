@@ -18,4 +18,27 @@ public class LimiteCanalConta {
     private LimiteCanal limiteCanal;
 
 
+    public LimiteCanalConta(Conta conta, LimiteCanal limiteCanal) {
+        this.conta = conta;
+        this.limiteCanal = limiteCanal;
+    }
+
+    public LimiteCanalConta() {
+    }
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }
+
+    public LimiteCanal getLimiteCanal() {
+        return limiteCanal;
+    }
+
+    public void setLimiteCanal(LimiteCanal limiteCanal) {
+        this.limiteCanal = limiteCanal;
+    }
 }
