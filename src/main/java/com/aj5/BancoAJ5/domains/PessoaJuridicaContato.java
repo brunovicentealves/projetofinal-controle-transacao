@@ -3,7 +3,7 @@ package com.aj5.BancoAJ5.domains;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "pessoajuridicocontato")
+@Table(name = "pessoa_juridico_contato")
 public class PessoaJuridicaContato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

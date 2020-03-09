@@ -3,7 +3,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tipocontato")
+@Table(name = "tipo_contato")
 public class TipoContato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
