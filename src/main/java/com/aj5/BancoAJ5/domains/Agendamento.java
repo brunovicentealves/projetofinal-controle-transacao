@@ -1,29 +1,34 @@
 package com.aj5.BancoAJ5.domains;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
-
+@Entity
+@Table(name = "agendamento")
 public class Agendamento {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long idAgendamento;
-    private  Conta idcontaDestino;
-    private  Conta idcontaOrigem;
     private  Double valor;
     private Date dataAgenda;
     private Date dataEfetivacao;
     private Boolean statusEfetivado;
+    @ManyToOne
+    @JoinColumn(name = "id_conta_destino",nullable = false)
+    private  Conta contaDestino;
+
+    @ManyToOne
+    @JoinColumn(name = "id_conta_origem")
+    private  Conta contaOrigem;
+
 
     public Agendamento() {
     }
 
     public Agendamento(Long idAgendamento, Conta idcontaDestino, Conta idcontaOrigem, Double valor, Date dataAgenda, Date dataEfetivacao, Boolean statusEfetivado) {
         this.idAgendamento = idAgendamento;
-        this.idcontaDestino = idcontaDestino;
-        this.idcontaOrigem = idcontaOrigem;
+        this.contaDestino = idcontaDestino;
+        this.contaOrigem = idcontaOrigem;
         this.valor = valor;
         this.dataAgenda = dataAgenda;
         this.dataEfetivacao = dataEfetivacao;
@@ -35,19 +40,19 @@ public class Agendamento {
     }
 
     public Conta getIdcontaDestino() {
-        return idcontaDestino;
+        return contaDestino;
     }
 
     public void setIdcontaDestino(Conta idcontaDestino) {
-        this.idcontaDestino = idcontaDestino;
+        this.contaDestino = idcontaDestino;
     }
 
     public Conta getIdcontaOrigem() {
-        return idcontaOrigem;
+        return contaOrigem;
     }
 
     public void setIdcontaOrigem(Conta idcontaOrigem) {
-        this.idcontaOrigem = idcontaOrigem;
+        this.contaOrigem = idcontaOrigem;
     }
 
     public Double getValor() {
@@ -82,16 +87,5 @@ public class Agendamento {
         this.statusEfetivado = statusEfetivado;
     }
 
-    @Override
-    public String toString() {
-        return "Agendamento{" +
-                "idAgendamento=" + idAgendamento +
-                ", idcontaDestino=" + idcontaDestino +
-                ", idcontaOrigem=" + idcontaOrigem +
-                ", valor=" + valor +
-                ", dataAgenda=" + dataAgenda +
-                ", dataEfetivacao=" + dataEfetivacao +
-                ", statusEfetivado=" + statusEfetivado +
-                '}';
-    }
+
 }

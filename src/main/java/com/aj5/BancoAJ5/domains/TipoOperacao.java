@@ -1,19 +1,24 @@
 package com.aj5.BancoAJ5.domains;
 
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
+@Table(name ="tipo_operacao")
 public class TipoOperacao {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTipoOperacao;
     private String codTipoOperacao;
     private String nomeTipoOpercacao;
+
+
+    @OneToMany(mappedBy = "tipoOperacao")
     private List<Taxa> taxaList;
 
     public TipoOperacao() {
     }
 
-    public TipoOperacao(Long idTipoOperacao, String codTipoOperacao, String nomeTipoOpercacao, List<Taxa> taxaList) {
-        this.idTipoOperacao = idTipoOperacao;
+    public TipoOperacao(String codTipoOperacao, String nomeTipoOpercacao, List<Taxa> taxaList) {
         this.codTipoOperacao = codTipoOperacao;
         this.nomeTipoOpercacao = nomeTipoOpercacao;
         this.taxaList = taxaList;
@@ -47,13 +52,5 @@ public class TipoOperacao {
         this.taxaList = taxaList;
     }
 
-    @Override
-    public String toString() {
-        return "TipoOperacao{" +
-                "idTipoOperacao=" + idTipoOperacao +
-                ", codTipoOperacao='" + codTipoOperacao + '\'' +
-                ", nomeTipoOpercacao='" + nomeTipoOpercacao + '\'' +
-                ", taxaList=" + taxaList +
-                '}';
-    }
+
 }

@@ -12,20 +12,31 @@ public class TaxaConta {
     @OneToMany(mappedBy = "taxaConta")
     private List<Conta> contaList;
 
-
-   // private Taxa idTaxa;
+    @ManyToOne
+    @JoinColumn(name = "id_taxa",nullable = false)
+   private Taxa taxa;
 
     public TaxaConta() {
     }
 
+    public TaxaConta(List<Conta> contaList, Taxa taxa) {
+        this.contaList = contaList;
+        this.taxa = taxa;
+    }
 
+    public List<Conta> getContaList() {
+        return contaList;
+    }
 
+    public void setContaList(List<Conta> contaList) {
+        this.contaList = contaList;
+    }
 
+    public Taxa getTaxa() {
+        return taxa;
+    }
 
-
-
-
-
-
-
+    public void setTaxa(Taxa taxa) {
+        this.taxa = taxa;
+    }
 }

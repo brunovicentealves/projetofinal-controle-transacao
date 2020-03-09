@@ -33,11 +33,5 @@ public class  Agencia {
         this.nomeAgencia = nomeAgencia;
     }
 
-    @Override
-    public String toString() {
-        return "Agencia{" +
-                "idAgencia=" + idAgencia +
-                ", nomeAgencia='" + nomeAgencia + '\'' +
-                '}';
-    }
+
 }

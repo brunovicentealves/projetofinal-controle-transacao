@@ -9,10 +9,6 @@ public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idConta;
-    @OneToOne(mappedBy = "conta")
-    private PessoaFisica pessoaFisica;
-    @OneToOne(mappedBy ="conta")
-    private PessoaJuridica pessoaJuridica;
     private long numeroConta;
     private Date dataAbertura;
     private String senha;
@@ -27,9 +23,23 @@ public class Conta {
     @JoinColumn(name = "id_taxa_conta",nullable = false)
     private TaxaConta taxaConta;
 
-   // private List<TaxaConta> taxaContaList;
+    @OneToOne(mappedBy = "conta")
+    private PessoaFisica pessoaFisica;
+    @OneToOne(mappedBy ="conta")
+    private PessoaJuridica pessoaJuridica;
+
+    @OneToMany(mappedBy = "conta")
+     private List<LimiteCanalConta> limiteCanalConta;
+
+
    // private List<Operacao> operacaoList;
-   // private List<Agendamento> agendamentoList;
+
+    @OneToMany(mappedBy = "contaDestino")
+   private List<Agendamento> agendamentoDestinoList;
+
+    @OneToMany(mappedBy = "contaOrigem")
+    private List<Agendamento> agendamentoOrigemList;
+
 
     public Conta() {
     }
@@ -38,69 +48,7 @@ public class Conta {
 
 
 
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
-    }
-
-    public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
-    }
-
-    public PessoaJuridica getPessoaJuridica() {
-        return pessoaJuridica;
-    }
-
-    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-        this.pessoaJuridica = pessoaJuridica;
-    }
 
 
 
-    public long getNumeroConta() {
-        return numeroConta;
-    }
-
-    public void setNumeroConta(long numeroConta) {
-        this.numeroConta = numeroConta;
-    }
-
-    public Date getDataAbertura() {
-        return dataAbertura;
-    }
-
-    public void setDataAbertura(Date dataAbertura) {
-        this.dataAbertura = dataAbertura;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public Double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(Double saldo) {
-        this.saldo = saldo;
-    }
-
-    public Double getLimiteCheckEspecial() {
-        return limiteCheckEspecial;
-    }
-
-    public void setLimiteCheckEspecial(Double limiteCheckEspecial) {
-        this.limiteCheckEspecial = limiteCheckEspecial;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }
