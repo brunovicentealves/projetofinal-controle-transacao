@@ -22,6 +22,11 @@ public class Conta {
     @ManyToOne
     @JoinColumn(name ="id_agencia", nullable = false)
     private Agencia agencia;
+
+    @ManyToOne
+    @JoinColumn(name = "id_taxa_conta",nullable = false)
+    private TaxaConta taxaConta;
+
    // private List<TaxaConta> taxaContaList;
    // private List<Operacao> operacaoList;
    // private List<Agendamento> agendamentoList;
