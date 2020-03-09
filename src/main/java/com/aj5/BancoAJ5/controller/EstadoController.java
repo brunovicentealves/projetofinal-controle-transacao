@@ -6,8 +6,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/estado")
 public class EstadoController {
-
-
-
-
 }
