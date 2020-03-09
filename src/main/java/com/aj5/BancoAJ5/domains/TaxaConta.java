@@ -9,7 +9,7 @@ public class TaxaConta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTaxaConta;
 
-    @OneToMany(mappedBy = "taxa_conta")
+    @OneToMany(mappedBy = "taxaConta")
     private List<Conta> contaList;
 
     @ManyToOne
