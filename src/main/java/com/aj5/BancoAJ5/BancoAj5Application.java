@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -26,6 +27,7 @@ public class BancoAj5Application {
 
 	private ApiInfo apiInfo() {
 		@SuppressWarnings("deprecation")
+
 		ApiInfo apiInfo = new ApiInfo(
 				"API REST - Controle de transação Bancaria",
 				"Foi criado essa Api para guardar todas as transações bancarias ",
