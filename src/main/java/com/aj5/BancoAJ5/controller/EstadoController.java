@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.DeleteMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import com.aj5.BancoAJ5.domains.Estado;
@@ -27,26 +26,26 @@ public class EstadoController {
 	}
 	
 
-	@ApiOperation(value="Consulta todos estados do sistema", notes="Consulta Assíncrona.")
+	@ApiOperation(value="Consulta todos estados do sistema", notes="Consulta Assï¿½ncrona.")
 	@GetMapping
 	public ResponseEntity<List<Estado>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
 
-	@ApiOperation(value="Consulta estado específico do sistema", notes="Consulta Assíncrona.")
+	@ApiOperation(value="Consulta estado especï¿½fico do sistema", notes="Consulta Assï¿½ncrona.")
 	@GetMapping("/{id}")
 	public ResponseEntity<Optional<Estado>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra estado no sistema", notes="Consulta Assíncrona.")
+	@ApiOperation(value="Cadastra estado no sistema", notes="Consulta Assï¿½ncrona.")
 	@PostMapping
 	public String save(@RequestBody Estado estado) {
 		return this.service.create(estado).toString();
 	}
 	
-	@ApiOperation(value="Deleta estado específico do sistema", notes="Consulta Assíncrona.")
+	@ApiOperation(value="Deleta estado especï¿½fico do sistema", notes="Consulta Assï¿½ncrona.")
 	@DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
