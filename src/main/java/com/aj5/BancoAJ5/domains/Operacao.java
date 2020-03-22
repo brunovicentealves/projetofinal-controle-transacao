@@ -30,7 +30,73 @@ public class Operacao {
 
 
     public Operacao() {
+
+    }
+
+    public Operacao(TipoOperacao tipoOperacao, CanalOperacao canalOperacao, Conta contaOrigem, Conta contaDestino, Date data, String descricao, Double valor) {
+        this.tipoOperacao = tipoOperacao;
+        this.canalOperacao = canalOperacao;
+        this.contaOrigem = contaOrigem;
+        this.contaDestino = contaDestino;
+        this.data = data;
+        this.descricao = descricao;
+        this.valor = valor;
     }
 
 
+    public TipoOperacao getTipoOperacao() {
+        return tipoOperacao;
+    }
+
+    public void setTipoOperacao(TipoOperacao tipoOperacao) {
+        this.tipoOperacao = tipoOperacao;
+    }
+
+    public CanalOperacao getCanalOperacao() {
+        return canalOperacao;
+    }
+
+    public void setCanalOperacao(CanalOperacao canalOperacao) {
+        this.canalOperacao = canalOperacao;
+    }
+
+    public Conta getContaOrigem() {
+        return contaOrigem;
+    }
+
+    public void setContaOrigem(Conta contaOrigem) {
+        this.contaOrigem = contaOrigem;
+    }
+
+    public Conta getContaDestino() {
+        return contaDestino;
+    }
+
+    public void setContaDestino(Conta contaDestino) {
+        this.contaDestino = contaDestino;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
 }

@@ -13,7 +13,7 @@ public class PessoaFisicaContato implements Serializable {
     private long idPessoaFisicaContato;
 
     @ManyToOne
-    @JoinColumn(name = "id_pessoa_juridica", nullable = false)
+    @JoinColumn(name = "id_pessoa_fisica", nullable = false)
     private PessoaFisica pessoaFisica;
 
     @ManyToOne
