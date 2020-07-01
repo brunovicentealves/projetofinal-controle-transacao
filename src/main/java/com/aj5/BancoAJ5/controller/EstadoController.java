@@ -16,7 +16,7 @@ import com.aj5.BancoAJ5.domains.Estado;
 import com.aj5.BancoAJ5.service.EstadoService;
 
 @RestController
-@RequestMapping("/estado")
+//@RequestMapping("/estado")
 public class EstadoController {
 	
 	private EstadoService service;
@@ -26,27 +26,27 @@ public class EstadoController {
 	}
 	
 
-	@ApiOperation(value="Consulta todos estados do sistema", notes="Consulta Ass�ncrona.")
-	@GetMapping
+	@ApiOperation(value="Consulta todos estados do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/estado")
 	public ResponseEntity<List<Estado>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
 
-	@ApiOperation(value="Consulta estado espec�fico do sistema", notes="Consulta Ass�ncrona.")
-	@GetMapping("/{id}")
+	@ApiOperation(value="Consulta estado especifico do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/estado/{id}")
 	public ResponseEntity<Optional<Estado>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra estado no sistema", notes="Consulta Ass�ncrona.")
-	@PostMapping
+	@ApiOperation(value="Cadastra estado no sistema", notes="Consulta Assincrona.")
+	@PostMapping("/cadastraEstado")
 	public String save(@RequestBody Estado estado) {
 		return this.service.create(estado).toString();
 	}
 	
-	@ApiOperation(value="Deleta estado espec�fico do sistema", notes="Consulta Ass�ncrona.")
-	@DeleteMapping("/{id}")
+	@ApiOperation(value="Deleta estado especifico do sistema", notes="Consulta Assincrona.")
+	@DeleteMapping("/estado/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
     	return "Estado " + id + " deletado.";

@@ -17,7 +17,7 @@ import com.aj5.BancoAJ5.service.CanalOperacaoService;
 
 
 @RestController
-@RequestMapping("/canalOperacao")
+//@RequestMapping("/canalOperacao")
 public class CanalOperacaoController {
 	
 	private CanalOperacaoService service;
@@ -26,26 +26,26 @@ public class CanalOperacaoController {
 		this.service = service;
 	}
 	
-	@ApiOperation(value="Consulta todos CanalOperacaos do sistema", notes="Consulta Assíncrona.")
-	@GetMapping
+	@ApiOperation(value="Consulta todos CanalOperacaos do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/canalOperacao")
 	public ResponseEntity<List<CanalOperacao>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
-	@ApiOperation(value="Consulta CanalOperacao específico do sistema", notes="Consulta Assíncrona.")
-	@GetMapping("/{id}")
+	@ApiOperation(value="Consulta CanalOperacao especifico do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/canalOperacao/{id}")
 	public ResponseEntity<Optional<CanalOperacao>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra CanalOperacao no sistema", notes="Consulta Assíncrona.")
-	@PostMapping
+	@ApiOperation(value="Cadastra CanalOperacao no sistema", notes="Consulta Assincrona.")
+	@PostMapping("cadastraCanalOperacao")
 	public String save(@RequestBody CanalOperacao CanalOperacao) {
 		return this.service.create(CanalOperacao).toString();
 	}
 	
-	@ApiOperation(value="Deleta CanalOperacao específico do sistema", notes="Consulta Assíncrona.")
-	@DeleteMapping("/{id}")
+	@ApiOperation(value="Deleta CanalOperacao especifico do sistema", notes="Consulta Assincrona.")
+	@DeleteMapping("/canalOperacao/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
     	return "CanalOperacao " + id + " deletado.";

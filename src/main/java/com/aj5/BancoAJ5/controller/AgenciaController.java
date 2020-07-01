@@ -17,7 +17,7 @@ import com.aj5.BancoAJ5.service.AgenciaService;
 
 
 @RestController
-@RequestMapping("/agencia")
+//RequestMapping("/agencia")
 public class AgenciaController {
 	
 	private AgenciaService service;
@@ -26,26 +26,26 @@ public class AgenciaController {
 		this.service = service;
 	}
 	
-	@ApiOperation(value="Consulta todos Agencias do sistema", notes="Consulta Assíncrona.")
-	@GetMapping
+	@ApiOperation(value="Consulta todos Agencias do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/agencia")
 	public ResponseEntity<List<Agencia>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
-	@ApiOperation(value="Consulta Agencia específico do sistema", notes="Consulta Assíncrona.")
-	@GetMapping("/{id}")
+	@ApiOperation(value="Consulta Agencia especifico do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/agencia/{id}")
 	public ResponseEntity<Optional<Agencia>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra Agencia no sistema", notes="Consulta Assíncrona.")
-	@PostMapping
+	@ApiOperation(value="Cadastra Agencia no sistema", notes="Consulta Assincrona.")
+	@PostMapping("/cadastraAgencia")
 	public String save(@RequestBody Agencia Agencia) {
 		return this.service.create(Agencia).toString();
 	}
 	
-	@ApiOperation(value="Deleta Agencia específico do sistema", notes="Consulta Assíncrona.")
-	@DeleteMapping("/{id}")
+	@ApiOperation(value="Deleta Agencia especifico do sistema", notes="Consulta Assincrona.")
+	@DeleteMapping("/agencia/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
     	return "Agencia " + id + " deletada.";

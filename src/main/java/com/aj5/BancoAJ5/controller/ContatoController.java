@@ -17,7 +17,7 @@ import com.aj5.BancoAJ5.service.ContatoService;
 
 
 @RestController
-@RequestMapping("/contato")
+//@RequestMapping("/contato")
 public class ContatoController {
 	
 	private ContatoService service;
@@ -26,26 +26,26 @@ public class ContatoController {
 		this.service = service;
 	}
 	
-	@ApiOperation(value="Consulta todos Contatos do sistema", notes="Consulta Assíncrona.")
-	@GetMapping
+	@ApiOperation(value="Consulta todos Contatos do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/contato")
 	public ResponseEntity<List<Contato>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
-	@ApiOperation(value="Consulta Contato específico do sistema", notes="Consulta Assíncrona.")
-	@GetMapping("/{id}")
+	@ApiOperation(value="Consulta Contato especifico do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/contato/{id}")
 	public ResponseEntity<Optional<Contato>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra Contato no sistema", notes="Consulta Assíncrona.")
-	@PostMapping
+	@ApiOperation(value="Cadastra Contato no sistema", notes="Consulta Assincrona.")
+	@PostMapping("/cadastraContato")
 	public String save(@RequestBody Contato Contato) {
 		return this.service.create(Contato).toString();
 	}
 	
-	@ApiOperation(value="Deleta Contato específico do sistema", notes="Consulta Assíncrona.")
-	@DeleteMapping("/{id}")
+	@ApiOperation(value="Deleta Contato especifico do sistema", notes="Consulta Assincrona.")
+	@DeleteMapping("/contato/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
     	return "Contato " + id + " deletado.";

@@ -17,7 +17,7 @@ import com.aj5.BancoAJ5.service.EnderecoService;
 
 
 @RestController
-@RequestMapping("/endereco")
+//@RequestMapping("/endereco")
 public class EnderecoController {
 	
 	private EnderecoService service;
@@ -26,26 +26,26 @@ public class EnderecoController {
 		this.service = service;
 	}
 	
-	@ApiOperation(value="Consulta todos Enderecos do sistema", notes="Consulta Assíncrona.")
-	@GetMapping
+	@ApiOperation(value="Consulta todos Enderecos do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/endereco")
 	public ResponseEntity<List<Endereco>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
-	@ApiOperation(value="Consulta Endereco específico do sistema", notes="Consulta Assíncrona.")
-	@GetMapping("/{id}")
+	@ApiOperation(value="Consulta Endereco especifico do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/endereco/{id}")
 	public ResponseEntity<Optional<Endereco>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra Endereco no sistema", notes="Consulta Assíncrona.")
-	@PostMapping
+	@ApiOperation(value="Cadastra Endereco no sistema", notes="Consulta Assincrona.")
+	@PostMapping("/cadastraEndereco")
 	public String save(@RequestBody Endereco Endereco) {
 		return this.service.create(Endereco).toString();
 	}
 	
-	@ApiOperation(value="Deleta Endereco específico do sistema", notes="Consulta Assíncrona.")
-	@DeleteMapping("/{id}")
+	@ApiOperation(value="Deleta Endereco especifico do sistema", notes="Consulta Assincrona.")
+	@DeleteMapping("/endereco/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
     	return "Endereco " + id + " deletado.";

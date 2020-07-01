@@ -17,7 +17,7 @@ import com.aj5.BancoAJ5.service.LimiteCanalService;
 
 
 @RestController
-@RequestMapping("/limiteCanal")
+//@RequestMapping("/limiteCanal")
 public class LimiteCanalController {
 	
 	private LimiteCanalService service;
@@ -26,26 +26,26 @@ public class LimiteCanalController {
 		this.service = service;
 	}
 	
-	@ApiOperation(value="Consulta todos LimiteCanals do sistema", notes="Consulta Assíncrona.")
-	@GetMapping
+	@ApiOperation(value="Consulta todos LimiteCanals do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/limiteCanal")
 	public ResponseEntity<List<LimiteCanal>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
-	@ApiOperation(value="Consulta LimiteCanal específico do sistema", notes="Consulta Assíncrona.")
-	@GetMapping("/{id}")
+	@ApiOperation(value="Consulta LimiteCanal especifico do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/limiteCanal/{id}")
 	public ResponseEntity<Optional<LimiteCanal>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra LimiteCanal no sistema", notes="Consulta Assíncrona.")
-	@PostMapping
+	@ApiOperation(value="Cadastra LimiteCanal no sistema", notes="Consulta Assincrona.")
+	@PostMapping("/CadastraLimiteCanal")
 	public String save(@RequestBody LimiteCanal LimiteCanal) {
 		return this.service.create(LimiteCanal).toString();
 	}
 	
-	@ApiOperation(value="Deleta LimiteCanal específico do sistema", notes="Consulta Assíncrona.")
-	@DeleteMapping("/{id}")
+	@ApiOperation(value="Deleta LimiteCanal especifico do sistema", notes="Consulta Assincrona.")
+	@DeleteMapping("/limiteCanal/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
     	return "LimiteCanal " + id + " deletado.";

@@ -14,6 +14,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class BancoAj5Application {
 
+	//acessar a documentação da api
+	//http://localhost:8080/swagger-ui.html#/
+
 	public static void main(String[] args) {
 
 		SpringApplication.run(BancoAj5Application.class, args);

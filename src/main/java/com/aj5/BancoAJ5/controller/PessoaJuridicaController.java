@@ -17,7 +17,7 @@ import com.aj5.BancoAJ5.service.PessoaJuridicaService;
 
 
 @RestController
-@RequestMapping("/pessoaJuridica")
+//@RequestMapping("/pessoaJuridica")
 public class PessoaJuridicaController {
 	
 	private PessoaJuridicaService service;
@@ -26,26 +26,26 @@ public class PessoaJuridicaController {
 		this.service = service;
 	}
 	
-	@ApiOperation(value="Consulta todos PessoaJuridicas do sistema", notes="Consulta Assíncrona.")
-	@GetMapping
+	@ApiOperation(value="Consulta todos PessoaJuridicas do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/pessoaJuridica")
 	public ResponseEntity<List<PessoaJuridica>> getAll(){
 		return ResponseEntity.ok(this.service.findAll());
 	}
 	
-	@ApiOperation(value="Consulta PessoaJuridica específico do sistema", notes="Consulta Assíncrona.")
-	@GetMapping("/{id}")
+	@ApiOperation(value="Consulta PessoaJuridica especifico do sistema", notes="Consulta Assincrona.")
+	@GetMapping("/pessoaJuridica/{id}")
 	public ResponseEntity<Optional<PessoaJuridica>> getByID(@PathVariable("id") Long id){
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 	
-	@ApiOperation(value="Cadastra PessoaJuridica no sistema", notes="Consulta Assíncrona.")
-	@PostMapping
+	@ApiOperation(value="Cadastra PessoaJuridica no sistema", notes="Consulta Assincrona.")
+	@PostMapping("/cadastraPessoaJuridica")
 	public String save(@RequestBody PessoaJuridica PessoaJuridica) {
 		return this.service.create(PessoaJuridica).toString();
 	}
 	
-	@ApiOperation(value="Deleta PessoaJuridica específico do sistema", notes="Consulta Assíncrona.")
-	@DeleteMapping("/{id}")
+	@ApiOperation(value="Deleta PessoaJuridica especifico do sistema", notes="Consulta Assincrona.")
+	@DeleteMapping("/pessoaJuridica/{id}")
     public String delete(@PathVariable("id") Long id) {
     	this.service.remove(id);
     	return "PessoaJuridica " + id + " deletado.";
