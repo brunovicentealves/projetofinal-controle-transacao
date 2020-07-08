@@ -34,4 +34,4 @@ services:
       - projetofinal-controle-trasacao-network
 
 networks:
-  hotel-service-network:
+    projetofinal-controle-trasacao-network
