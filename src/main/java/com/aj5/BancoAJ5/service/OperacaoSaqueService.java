@@ -1,16 +1,13 @@
 package com.aj5.BancoAJ5.service;
 
 import com.aj5.BancoAJ5.domains.Conta;
-import com.aj5.BancoAJ5.domains.Operacao;
 import com.aj5.BancoAJ5.domains.TipoOperacao;
-import com.aj5.BancoAJ5.dtos.ContaDto;
 import com.aj5.BancoAJ5.dtos.ContaNotFoundException;
 import com.aj5.BancoAJ5.repository.ContaRepository;
 import com.aj5.BancoAJ5.repository.OperacaoRepository;
 import com.aj5.BancoAJ5.repository.TipoOperacaoRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -69,10 +66,10 @@ public class OperacaoSaqueService {
 			conta.setSaldo(saldo - taxaDaOperacao + valor);
 
 			//busca tipoOperacao
-			Optional<TipoOperacao> tipoOperacao = tipoOperacaoRepository.findByNomeTipoOpercacao("SALDO");
+			Optional<TipoOperacao> tipoOperacao = tipoOperacaoRepository.findBynomeTipoOperacao("SALDO");
 
 			// 	registra operação saque como o parâmetro valor
-			operacaoRepository.salva(tipoOperacao);
+		//	operacaoRepository.salva(tipoOperacao);
 			// 	registra operação taxa saque como a taxaDaOperacao
 		}else{
 			throw new ContaNotFoundException();

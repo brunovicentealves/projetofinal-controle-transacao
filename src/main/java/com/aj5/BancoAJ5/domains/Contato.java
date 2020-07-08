@@ -35,6 +35,10 @@ public class Contato {
         this.tipocontato = tipoContato;
     }
 
+    public Contato( String telefone) {
+        this.telefone = telefone;
+    }
+
     public long getIdContato() {
         return idContato;
     }

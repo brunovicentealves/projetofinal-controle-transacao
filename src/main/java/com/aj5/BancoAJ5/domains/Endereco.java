@@ -22,11 +22,19 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(int numeroEndereco, long cep, String complemento, Cidade cidade) {
+    public Endereco(String nomeEndereco, int numeroEndereco, long cep, String complemento, Cidade cidade) {
+        this.nomeEndereco = nomeEndereco;
         this.numeroEndereco = numeroEndereco;
         this.cep = cep;
         this.complemento = complemento;
         this.cidade = cidade;
+    }
+
+    public Endereco(String nomeEndereco, int numeroEndereco, long cep, String complemento) {
+        this.nomeEndereco = nomeEndereco;
+        this.numeroEndereco = numeroEndereco;
+        this.cep = cep;
+        this.complemento = complemento;
     }
 
     public long getIdEndereco() {

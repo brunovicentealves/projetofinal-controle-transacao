@@ -13,8 +13,8 @@ public class AgenciaService {
 
 	private AgenciaRepository repository;
 
+
 	public AgenciaService(AgenciaRepository repository) {
-		super();
 		this.repository = repository;
 	}
 	

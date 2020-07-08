@@ -7,8 +7,8 @@ import java.util.List;
 public class CanalOperacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long canalOperacao;
-    private String codCanalOperacao;
+    private Long idCanalOperacao;
+    private int  codCanalOperacao;
     private String nomecanalOperacao;
 
     @OneToMany(mappedBy = "canalOperacao")
@@ -20,22 +20,27 @@ public class CanalOperacao {
     public CanalOperacao() {
     }
 
-    public CanalOperacao(String codCanalOperacao, String nomecanalOperacao, List<LimiteCanal> limiteCanalList, List<Operacao> operacaoList) {
+    public CanalOperacao(int codCanalOperacao, String nomecanalOperacao, List<LimiteCanal> limiteCanalList, List<Operacao> operacaoList) {
         this.codCanalOperacao = codCanalOperacao;
         this.nomecanalOperacao = nomecanalOperacao;
         this.limiteCanalList = limiteCanalList;
         this.operacaoList = operacaoList;
     }
+    public CanalOperacao(int codCanalOperacao, String nomecanalOperacao) {
+        this.codCanalOperacao = codCanalOperacao;
+        this.nomecanalOperacao = nomecanalOperacao;
 
-    public Long getCanalOperacao() {
-        return canalOperacao;
     }
 
-    public String getCodCanalOperacao() {
+    public Long getIdCanalOperacao() {
+        return idCanalOperacao;
+    }
+
+    public int getCodCanalOperacao() {
         return codCanalOperacao;
     }
 
-    public void setCodCanalOperacao(String codCanalOperacao) {
+    public void setCodCanalOperacao(int codCanalOperacao) {
         this.codCanalOperacao = codCanalOperacao;
     }
 

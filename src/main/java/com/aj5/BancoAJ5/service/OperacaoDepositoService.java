@@ -1,7 +1,6 @@
 package com.aj5.BancoAJ5.service;
 
 import com.aj5.BancoAJ5.domains.Conta;
-import com.aj5.BancoAJ5.domains.Operacao;
 import com.aj5.BancoAJ5.domains.TipoOperacao;
 import com.aj5.BancoAJ5.dtos.ContaNotFoundException;
 import com.aj5.BancoAJ5.repository.ContaRepository;
@@ -50,10 +49,11 @@ public class OperacaoDepositoService {
 			conta.setSaldo(saldo + valorDeposito);
 
 			//busca tipoOperacao
-			Optional<TipoOperacao> tipoOperacao = tipoOperacaoRepository.findByNomeTipoOpercacao("DEPOSITO");
+			Optional<TipoOperacao> tipoOperacao = tipoOperacaoRepository.findBynomeTipoOperacao("DEPOSITO");
 
 			// 	registra operação saque como o parâmetro valorDeposito
-			operacaoRepository.salva(tipoOperacao);
+			//operacaoRepository.salva(tipoOperacao);
+			//operacaoRepository.save(tipoOperacao);
 			// 	registra operação taxa saque como a taxaDaOperacao
 		}else{
 			throw new ContaNotFoundException();

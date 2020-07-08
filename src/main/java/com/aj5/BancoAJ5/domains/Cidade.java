@@ -25,6 +25,11 @@ public class Cidade {
         this.estado = estado;
     }
 
+    public Cidade(long idCidade, String nomeCidade) {
+        this.idCidade = idCidade;
+        this.nomeCidade = nomeCidade;
+    }
+
     public long getIdCidade() {
         return idCidade;
     }

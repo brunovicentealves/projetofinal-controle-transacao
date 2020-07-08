@@ -35,6 +35,15 @@ public class Agendamento {
         this.statusEfetivado = statusEfetivado;
     }
 
+    public Agendamento( Conta idcontaDestino, Conta idcontaOrigem, Double valor, Date dataAgenda, Date dataEfetivacao, Boolean statusEfetivado) {
+        this.contaDestino = idcontaDestino;
+        this.contaOrigem = idcontaOrigem;
+        this.valor = valor;
+        this.dataAgenda = dataAgenda;
+        this.dataEfetivacao = dataEfetivacao;
+        this.statusEfetivado = statusEfetivado;
+    }
+
     public Long getIdAgendamento() {
         return idAgendamento;
     }

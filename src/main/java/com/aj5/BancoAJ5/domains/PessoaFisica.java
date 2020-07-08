@@ -34,6 +34,14 @@ public class PessoaFisica implements Serializable {
         this.conta = conta;
     }
 
+    public PessoaFisica(String nomePessoa, Date dataNascimento, String cpf, Double rendaMensal) {
+        this.nomePessoa = nomePessoa;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.rendaMensal = rendaMensal;
+
+    }
+
     public String getNomePessoa() {
         return nomePessoa;
     }

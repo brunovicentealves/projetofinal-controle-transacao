@@ -22,6 +22,10 @@ public class  Agencia {
         this.nomeAgencia = nomeAgencia;
     }
 
+    public Agencia (String nomeAgencia) {
+        this.nomeAgencia = nomeAgencia;
+    }
+
     public Long getIdAgencia() {
         return idAgencia;
     }

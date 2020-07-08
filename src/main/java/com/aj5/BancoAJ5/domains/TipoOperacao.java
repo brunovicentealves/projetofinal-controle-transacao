@@ -9,7 +9,7 @@ public class TipoOperacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTipoOperacao;
     private String codTipoOperacao;
-    private String nomeTipoOpercacao;
+    private String nomeTipoOperacao;
 
 
     @OneToMany(mappedBy = "tipoOperacao")
@@ -23,7 +23,7 @@ public class TipoOperacao {
 
     public TipoOperacao(String codTipoOperacao, String nomeTipoOpercacao, List<Taxa> taxaList, List<Operacao> operacaoList) {
         this.codTipoOperacao = codTipoOperacao;
-        this.nomeTipoOpercacao = nomeTipoOpercacao;
+        this.nomeTipoOperacao = nomeTipoOpercacao;
         this.taxaList = taxaList;
         this.operacaoList = operacaoList;
     }
@@ -37,11 +37,11 @@ public class TipoOperacao {
     }
 
     public String getNomeTipoOpercacao() {
-        return nomeTipoOpercacao;
+        return nomeTipoOperacao;
     }
 
     public void setNomeTipoOpercacao(String nomeTipoOpercacao) {
-        this.nomeTipoOpercacao = nomeTipoOpercacao;
+        this.nomeTipoOperacao = nomeTipoOpercacao;
     }
 
     public List<Taxa> getTaxaList() {
